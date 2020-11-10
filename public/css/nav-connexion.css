@@ -1,0 +1,34 @@
+.logo {
+margin: auto;
+}
+
+nav {
+    height: auto;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+/* .dropdown {
+    display: flex;
+    justify-content: flex-end !important;
+} */
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+/*.navbar-expand-md .navbar-collapse {*/
+/*    justify-content: flex-end;*/
+/*}*/
+
+
+.basDroite {
+    position:absolute;
+    bottom:0;
+    right:0;
+}

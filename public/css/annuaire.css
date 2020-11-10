@@ -1,0 +1,15 @@
+.annuaire {
+    text-align: center;
+}
+
+.section {
+    margin-top:55px;
+    text-align: center;
+    background-color: #C2B7B7;
+    margin-bottom: 50px;
+}
+
+.photo {
+    -webkit-filter: grayscale(100%); 
+      filter: grayscale(100%); 
+}
