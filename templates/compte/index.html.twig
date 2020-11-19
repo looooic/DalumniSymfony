@@ -1,10 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CompteController!{% endblock %}
+{% block title %}{{ parent() }} - Inscription{% endblock %}
 
 {% block body %}
-    {{ form_start }}
-    {{ form_widget }}
-    <input type="submit" value="S'inscrire">
-    {{ form_end }}
+
 {% endblock %}
