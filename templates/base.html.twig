@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <a href="{{ path('default') }}"><img src="{{ asset('img/logoalumni.png') }}" class="img-fluid" alt="" width="125px"></a>
 
-
+        <ul class="navbar-nav basGauche">{% if is_granted('ROLE_ADMIN') %}<li class="nav-item"></li><a class="nav-link" href="{{ path('admindefault') }}">Admin</a></ul> {% endif %}
         <ul class="navbar-nav basDroite">{% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="nav-item"><a class="nav-link" href="{{ path('default') }}">Accueil</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ path('cours') }}">Cours</a></li>

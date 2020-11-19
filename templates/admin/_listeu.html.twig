@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Liste des Utilisateurs {% endblock %}
+
+{% block body %}
+    <h3>Nombre d'utilisateurs : {{ users | length }}</h3>
+
+    <table class="border border-dark">
+        <tr class="border border-dark">
+        <th class="border border-dark">Nom</th>
+        <th class="border border-dark">Prenom</th>
+        <th class="border border-dark">Email</th>
+            <th class="border border-dark">Role</th>
+        <th class="border border-dark">Action</th></tr>
+        {% for users in users %}
+        <tr class="border border-dark" >
+            <td class="border border-dark">{{ users.nom }}</td>
+            <td class="border border-dark">{{ users.prenom }}</td>
+            <td class="border border-dark">{{ users.email }}</td>
+
+            <td class="border border-dark"> {% for roles in users.roles%}
+                    {% if roles == "ROLE_USER" %}
+                    Utilisateur
+                    {% elseif roles == "ROLE_MANAGER" %}
+                        Manager
+                    {% elseif roles == "ROLE_ADMIN" %}
+                        Administrateur
+                  {% endif %}
+                {% endfor %}</td>
+            <td class="border border-dark"><a href="{{ path('adminedit_user',{'id': users.id } )}}">Modifier utilisateur</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

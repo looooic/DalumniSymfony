@@ -4,4 +4,12 @@
 
 {% block body %}
 
+    {% if is_granted('ROLE_USER') %}
+        connecté
+{% else %}
+    <a href="{{ path('register') }}">S'inscrire ici</a>
+    <a href="{{ path('app_login') }}">Se connecter ici</a>
+
+{% endif %}
+
 {% endblock %}
