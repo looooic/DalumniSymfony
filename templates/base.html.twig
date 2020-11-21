@@ -22,15 +22,14 @@
             <li class="nav-item"><a class="nav-link" href="{{ path('cours') }}">Cours</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ path('forum') }}">Forum</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ path('annuaire') }}">Annuaire</a></li>
-
-
+                <li class="nav-item"><a class="nav-link" href="{{path('modifier_info')}}">Modifier ses informations</a></li>
 
                 <li class="nav-item"><a class="nav-link" href="{{path('app_logout')}}">Se deconnecter</a></li>
-            {% else %}
-                <li class="nav-item"><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>
+        {% else %}
+                <li class="nav-item basDroite"><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>
+                <li class="nav-item basDroite"><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>
             {% endif %}
-        </ul>
+                </ul>
             </div>
         </nav>
     </header>
