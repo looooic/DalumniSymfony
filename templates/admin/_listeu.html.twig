@@ -11,7 +11,9 @@
         <th class="border border-dark">Prenom</th>
         <th class="border border-dark">Email</th>
             <th class="border border-dark">Role</th>
+        <th class="border border-dark">Action</th>
         <th class="border border-dark">Action</th></tr>
+
         {% for users in users %}
         <tr class="border border-dark" >
             <td class="border border-dark">{{ users.nom }}</td>
@@ -28,6 +30,8 @@
                   {% endif %}
                 {% endfor %}</td>
             <td class="border border-dark"><a href="{{ path('adminedit_user',{'id': users.id } )}}">Modifier utilisateur</a></td>
+            <td class="border border-dark"><a href="{{ path('user_delete',{'id': users.id } )}}">Supprimer utilisateur</a></td>
+
 
         </tr>
         {% endfor %}
