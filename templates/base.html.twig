@@ -21,6 +21,9 @@
         </button>
         <div class="collapse navbar-collapse justify-content-flex-end" id="navbarNav">
             <ul class="navbar-nav navbar-light bg-dark">
+
+                                {% if is_granted('ROLE_ADMIN') %}<ul class="navbar-nav basGauche"><li class="nav-item"></li><a class="nav-link" href="{{ path('admindefault') }}">Admin</a></ul> {% endif %}
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}<ul class="navbar-nav basDroite">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('default') }}">Acceuil<span class="sr-only">(current)</span></a>
                 </li>
@@ -34,30 +37,36 @@
                     <a class="nav-link" href="{{ path('annuaire') }}">Annuaire</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('compte') }}">Mon compte</a>
+                    <a class="nav-link" href="{{ path('user_edit',{'id': app.user.id}) }}">Mon compte</a>
+                                    <li class="nav-item"><a class="nav-link" href="{{path('app_logout')}}">Se deconnecter</a></li>
+                    {% else %}
+                                    <li class="nav-item basDroite"><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>
+                                    <li class="nav-item basDroite"><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>
+                                {% endif %}
+
                 </li>
             </ul>
         </div>
     </nav>
     <br><br>
 
-                {% if is_granted('ROLE_ADMIN') %}<ul class="navbar-nav basGauche"><li class="nav-item"></li><a class="nav-link" href="{{ path('admindefault') }}">Admin</a></ul> {% endif %}
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}<ul class="navbar-nav basDroite">
-            <li class="nav-item"><a class="nav-link" href="{{ path('default') }}">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('cours') }}">Cours</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('post_index') }}">Forum</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('annuaire') }}">Annuaire</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('user_edit',{'id': app.user.id}) }}">Modifier ses informations</a></li>
+{#                {% if is_granted('ROLE_ADMIN') %}<ul class="navbar-nav basGauche"><li class="nav-item"></li><a class="nav-link" href="{{ path('admindefault') }}">Admin</a></ul> {% endif %}#}
+{#                {% if is_granted('IS_AUTHENTICATED_FULLY') %}<ul class="navbar-nav basDroite">#}
+{#            <li class="nav-item"><a class="nav-link" href="{{ path('default') }}">Accueil</a></li>#}
+{#            <li class="nav-item"><a class="nav-link" href="{{ path('cours') }}">Cours</a></li>#}
+{#            <li class="nav-item"><a class="nav-link" href="{{ path('post_index') }}">Forum</a></li>#}
+{#            <li class="nav-item"><a class="nav-link" href="{{ path('annuaire') }}">Annuaire</a></li>#}
+{#                <li class="nav-item"><a class="nav-link" href="{{ path('user_edit',{'id': app.user.id}) }}">Modifier ses informations</a></li>#}
 
-                <li class="nav-item"><a class="nav-link" href="{{path('app_logout')}}">Se deconnecter</a></li>
-        {% else %}
-                <li class="nav-item basDroite"><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>
-                <li class="nav-item basDroite"><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>
-            {% endif %}
-                </ul>
-            </div>
-        </nav>
-    </header>
+{#                <li class="nav-item"><a class="nav-link" href="{{path('app_logout')}}">Se deconnecter</a></li>#}
+{#        {% else %}#}
+{#                <li class="nav-item basDroite"><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>#}
+{#                <li class="nav-item basDroite"><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>#}
+{#            {% endif %}#}
+{#                </ul>#}
+{#            </div>#}
+{#        </nav>#}
+{#    </header>#}
 
 
     <div class="container">
