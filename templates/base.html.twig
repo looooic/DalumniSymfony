@@ -10,30 +10,50 @@
         {% endblock %}
     </head>
     <body>
-    <header>
-        <nav class="navbar navbar-dark bg-dark navbar-expand-md" style="display: block;">
 
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <a href="{{ path('default') }}"><img src="{{ asset('img/logoalumni.png') }}" class="img-fluid" alt="" width="125px"></a>
+    {# NEW NAV #}
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="box-sizing: content-box !important; padding-top: -1rem; padding-bottom: 1rem;">
+        <a class="navbar-brand" href="{{ path('default') }}">
+            <img src="{{ asset('img/logoalumni.png') }}" class="photo w-75 h-75">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-flex-end" id="navbarNav">
+            <ul class="navbar-nav navbar-light bg-dark">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('default') }}">Acceuil<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('cours') }}">Cours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('forum') }}">Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('annuaire') }}">Annuaire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('compte') }}">Mon compte</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br><br>
 
-
-        <ul class="navbar-nav basDroite">
-            <li class="nav-item"><a class="nav-link" href="{{ path('default') }}">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('cours') }}">Cours</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('forum') }}">Forum</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('annuaire') }}">Annuaire</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{path('compte')}}">Mon compte</a></li>
-        </ul>
-            </div>
-        </nav>
-    </header>
-
-
+    <div class="container">
         {% block body %}
+            {# BODY CONTENT #}
         {% endblock %}
+    </div>
+
     <footer>
         {% block footer %}
-
+            <div class="fixed-bottom">
+                <footer class="footer1 bg-dark">
+                    <p class="mb-0 text-center text-white"><a href="https://www.dawan.fr/" style="text-decoration: none; color: white;">Dawan Alumni</a>&copy;</p>
+                </footer>
+            </div>
         {% endblock %}
     </footer>
 

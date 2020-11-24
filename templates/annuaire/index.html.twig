@@ -3,18 +3,49 @@
 {% block title %}Hello AnnuaireController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="col text-center">
+        <h1>Présentation </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpaquisquam accusamus sint eius consectetur natus commodi tenetur, labore voluptate obcaecati ab corporis, atque ipsa pariatur, reprehenderit dolorem saepe officiis laudantium?
+        </p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/lo/Desktop/DalumniSymfony/src/Controller/AnnuaireController.php'|file_link(0) }}">src/Controller/AnnuaireController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/lo/Desktop/DalumniSymfony/templates/annuaire/index.html.twig'|file_link(0) }}">templates/annuaire/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+        <p>Quare hoc quidem praeceptum, cuiuscumque est, ad tollendam amicitiam valet; illud potius praecipiendum fuitut eam diligentiam adhiberemus in amicitiis comparandis, ut ne quando amare nciperemus eum, quem aliquando odisse possemus. Quin etiam si minus felices in diligendo fuissemus, ferendum id Scipio potius quam inimicitiarum tempus cogitandum putabat.
+        </p>
+
+        <h1>Carte</h1>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.8103214176567!2d2.316389115902547!3d48.8427566097611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671ccb16540b5%3A0xb94e60afcc950426!2sDAWAN!5e0!3m2!1sfr!2sfr!4v1602682356511!5m2!1sfr!2sfr" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="w-100 p-3 h-100">
+        </iframe>
+    </div>
+
+    <div class="section mb-5" style="text-align:center;">
+        <h2>Ils nous ont fait confiance</h2>
+    </div>
+
+    <div>
+        <div class="row " style="text-align:center;">
+            <div class="col-md-4">
+                <img src="{{ asset('img/CIC.png') }}" class="photo w-50 p-3 h-75" alt="Logo CIC">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('img/audi.png') }}" class="photo w-50 p-3 h-75" alt="Audi">
+            </div>
+            <div class="col-md-4">
+                <img src="{{ asset('img/total.png') }}" class="photo w-50 p-3 h-75" alt="TOTAL">
+            </div>
+        </div>
+    </div>
+
+        <div>
+            <div class="row " style="text-align:center">
+                <div class="col-md-4">
+                    <img src="{{ asset('img/paris.png') }}" class="photo w-50 p-3 h-75" alt="mairie de paris">
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ asset('img/laposte.png') }}" class="photo w-50 p-3 h-75" style="width:170px" alt="laposte">
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ asset('img/bnp.jpg') }}" class="photo w-50 p-3 h-75" alt="bnp">
+                </div>
+            </div>
+        </div>
+    {% endblock %}

@@ -3,18 +3,91 @@
 {% block title %}Hello CoursController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="col text-center d-flex justify-content-center">
+        <h2>Liens des cours</h2>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/lo/Desktop/DalumniSymfony/src/Controller/CoursController.php'|file_link(0) }}">src/Controller/CoursController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/lo/Desktop/DalumniSymfony/templates/cours/index.html.twig'|file_link(0) }}">templates/cours/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="row" style="padding-top: 3rem;">
+        <div class="col-md-4">
+            <button class="btn btn-outline-dark btn-block">HTML</button>
+        </div>
+
+        <div class="col-md-4">
+            <button class="btn btn-outline-dark btn-block">CSS</button>
+        </div>
+
+        <div class="col-md-4">
+            <button class="btn btn-outline-dark btn-block">JAVASCRIPT</button>
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 6rem;">
+        <div class="col-md-4">
+            <button class="btn btn-outline-dark btn-block" onclick="btnclick1(); return true;">JQUERY</button>
+        </div>
+
+        <div class="col-md-4">
+            <button class="btn btn-outline-dark btn-block" onclick="btnclick2(); return true;">PHP</button>
+        </div>
+
+        <div class="col-md-4">
+            <button class="btn btn-outline-dark btn-block">GIT</button>
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 6rem;">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button class="btn btn-outline-dark btn-block" onclick="btnclick(); return true;">BOOTSTRAP</button>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <embed src="{{ asset('pdf/PDF_bootstrap.pdf') }}" width="100%"  style="height:62rem; padding-top:2rem; display:none;" id="pop2"/>
+            <embed src="{{ asset('pdf/PDF_jquery.pdf') }}" width="100%" style="height:62rem; padding-top:2rem; display:none;" id="pop1"/>
+            <embed src="{{ asset('pdf/PDF_php1.pdf') }}" width="100%" style="height:62rem; padding-top:2rem; display:none;" id="pop3"/>
+        </div>
+    </div>
+    <div class="col text-center d-flex justify-content-center">
+        <a href="{{ path('default') }}" class="btn btn-primary text-white text-center mt-5">Retourner à  l'acceuil</a>
+    </div>
+
+
+    <script>
+        function btnclick() {
+            if (pop2.style.display === "none") {
+                pop2.style.display = "block";
+                pop1.style.display = "none";
+                pop3.style.display = "none";
+            } else {
+                pop2.style.display = "none";
+            }
+        }
+        function btnclick1() {
+
+            if (pop1.style.display === "none") {
+                pop1.style.display = "block";
+                pop2.style.display = "none";
+                pop3.style.display = "none";
+
+            } else {
+                pop1.style.display = "none";
+            }
+        }
+
+        function btnclick2() {
+            if (pop3.style.display === "none") {
+                pop3.style.display = "block";
+                pop1.style.display = "none";
+                pop2.style.display = "none";
+            } else {
+                pop3.style.display = "none";
+            }
+        }
+    </script>
+
 {% endblock %}
