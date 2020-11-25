@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Author;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +16,9 @@ class AuthorType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('email')
-            ->add('birthday')
+            ->add('birthday',DateType::class, [
+        'widget' => 'single_text',
+    ])
             ->add('user_id')
         ;
     }
