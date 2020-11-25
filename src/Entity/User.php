@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -47,6 +48,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $prenom;
+
+
+
+    const SERVER_PATH_TO_IMAGE_FOLDER='server/path/to/images';
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -163,16 +169,35 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
+
+
+
     public function getPhoto(): ?string
     {
         return $this->photo;
     }
 
-    public function setPhoto(?string $photo): self
+    public function setPhoto(UploadedFile $photo = null): self
     {
         $this->photo = $photo;
+    }
 
-        return $this;
+    public function upload()
+    {
+        if(null===$this->getPhoto()){
+            return;
+        }
+        $this->getPhoto()->move(self::SERVER_PATH_TO_IMAGE_FOLDER,$this->getPhoto()->getClientOriginalName());
+        $this->filename=$this->getPhoto()->getClientOriginalName();
+        $this->setPhoto(null);
+    }
+    public function lifecycleFileUpload()
+    {
+        $this->upload();
+    }
+    public function refreshUpdated()
+    {
+        $this->setUpdated(new \DateTime());
     }
 
     /**

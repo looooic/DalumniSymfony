@@ -5,15 +5,6 @@
 {% block body %}
 
     {% if is_granted('ROLE_USER') %}
-        connecté
-{% else %}
-    <a href="{{ path('register') }}">S'inscrire ici</a>
-    <a href="{{ path('app_login') }}">Se connecter ici</a>
-
-{% endif %}
-
-    {% if is_granted('ROLE_USER') %}
-        {# connecté #}
         <div class="col text-center d-flex justify-content-center">
         <h1>Bienvenue sur Dawan Alumni</h1>
     </div>
@@ -79,8 +70,9 @@
         </div>
 
     {% else %}
-        <a href="{{ path('register') }}">S'inscrire ici</a>
-        <a href="{{ path('app_login') }}">Se connecter ici</a>
+        <h2>Connectez-vous pour accéder au site :</h2><br><br>
+        <a href="{{ path('register') }}" class="btn  btn-lg active" >S'inscrire ici</a> <br>
+        <a href="{{ path('app_login') }}" class="btn  btn-lg active">Se connecter ici</a>
     {% endif %}
 
 {% endblock %}
