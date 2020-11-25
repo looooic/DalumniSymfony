@@ -16,6 +16,10 @@
                 <td>{{ post.titre }}</td>
             </tr>
             <tr>
+                <th>Auteur</th>
+                <td> {{ post.author ? post.author.user.prenom : 'nc' }} </td>
+            </tr>
+            <tr>
                 <th>Champs</th>
                 <td>{{ post.champs }}</td>
             </tr>

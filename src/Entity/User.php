@@ -58,6 +58,11 @@ class User implements UserInterface
      */
     private $resetPasswordRequests;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Author::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $author;
+
     public function __construct()
     {
         $this->resetPasswordRequests = new ArrayCollection();
@@ -200,6 +205,26 @@ class User implements UserInterface
             if ($resetPasswordRequest->getUserId() === $this) {
                 $resetPasswordRequest->setUserId(null);
             }
+        }
+
+        return $this;
+    }
+
+
+
+    public function getAuthor(): ?Author
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?Author $author): self
+    {
+        $this->author = $author;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = null === $author ? null : $this;
+        if ($author->getUser() !== $newUser) {
+            $author->setUser($newUser);
         }
 
         return $this;

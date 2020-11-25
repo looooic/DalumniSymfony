@@ -38,9 +38,9 @@ class Author
     private $birthday;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="author", cascade={"persist", "remove"})
      */
-    private $user_id;
+    private $user;
 
     public function getId(): ?int
     {
@@ -95,14 +95,14 @@ class Author
         return $this;
     }
 
-    public function getUserId(): ?int
+    public function getUser(): ?User
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(?int $user_id): self
+    public function setUser(?User $user): self
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
 
         return $this;
     }

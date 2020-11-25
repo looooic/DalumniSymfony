@@ -32,6 +32,18 @@ class Post
      */
     private $datepost;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Author::class)
+     */
+    private $author;
+
+    public function __construct()
+    {
+        $this->datepost = new \DateTime();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,4 +84,17 @@ class Post
 
         return $this;
     }
+
+    public function getAuthor(): ?Author
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?Author $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
 }
