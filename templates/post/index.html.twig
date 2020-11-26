@@ -2,8 +2,12 @@
 
 {% block title %}Post index{% endblock %}
 
+
 {% block body %}
     <h1>Forum Dawan Alumni</h1>
+
+    <h5 class="deuxiemetexte">Bienvenue dans notre Forum d'ancien étudiant ! Vous pouvez poser vos questions par rapport à l'organisme de
+        formation Dawan et aux évènements liés à notre entreprise.</h5>
 
     <table class="table">
         <thead>
@@ -12,7 +16,7 @@
                 <th>Titre</th>
                 <th>Auteur</th>
                 <th>Champs</th>
-                <th>Datepost</th>
+                <th>Crée le</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,12 +25,13 @@
             <tr>
                 <td> {{ post.id }} </td>
                 <td> {{ post.titre }} </td>
-                <td> {{ post.author ? post.author.user.prenom : 'nc' }} </td>
+                <td>{{ post.author ? post.author.user.prenom : 'nc' }} </td>
                 <td>{{ post.champs }}</td>
                 <td>{{ post.datepost ? post.datepost|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
+                    <button type="button" class="btn btn-warning bouton">  <a href="{{ path('post_show', {'id': post.id}) }}">Aller sur le sujet</a> </button>
+
+                    <button type="button" class="btn btn-light bouton">  <a href="{{ path('post_edit', {'id': post.id}) }}">Modifier le sujet</a> </button>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +42,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('post_new') }}">Create new</a>
+    <button type="button" class="btn btn-warning bouton"><a href="{{ path('post_new') }}">Nouveau sujet de discussion</a></button>
 {% endblock %}

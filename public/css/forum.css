@@ -1,26 +1,22 @@
-.btn {
-    text-decoration: none;
-   color: orangered;
+
+
+
+
+
+.bouton a {
+    text-decoration:none;
+    color: black;
 }
 
-.fofo {
-    margin-top: 70px;
-}
 
-.contact {
-    margin-top: 55px;
-    margin-bottom: 25px;
-}
-
-.eleve {
-    margin-top: 40px;
+.deuxiemetexte {
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.espace {
-    padding: 100px;
-}
 
-.forum {
-    padding-top:20px;
+.table {
+    background-color: #FA8A72;
+    border: 10px solid #FA8A72 ;
+    border-radius: 1px;
 }
