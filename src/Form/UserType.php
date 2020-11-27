@@ -17,6 +17,9 @@ class UserType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('photo')
+            ->add('author', AuthorType::class,[
+                'label'=>false
+            ])
         ;
     }
 

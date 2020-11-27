@@ -19,7 +19,7 @@ class AuthorType extends AbstractType
             ->add('birthday',DateType::class, [
         'widget' => 'single_text',
     ])
-            ->add('user_id')
+           
         ;
     }
 
