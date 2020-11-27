@@ -1,8 +1,4 @@
 
-
-
-
-
 .bouton a {
     text-decoration:none;
     color: black;
@@ -17,6 +13,6 @@
 
 .table {
     background-color: #FA8A72;
-    border: 10px solid #FA8A72 ;
-    border-radius: 1px;
+    border-radius: 10px;
 }
+
