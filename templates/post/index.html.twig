@@ -25,7 +25,7 @@
             <tr>
                 <td> {{ post.id }} </td>
                 <td> {{ post.titre }} </td>
-                <td>{{ post.author ? post.author.user.prenom : 'nc' }} </td>
+                <td>{{ post.author ? post.author.users.prenom : 'nc' }} </td>
                 <td>{{ post.champs }}</td>
                 <td>{{ post.datepost ? post.datepost|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
