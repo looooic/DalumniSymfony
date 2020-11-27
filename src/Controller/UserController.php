@@ -8,10 +8,14 @@ use App\Form\ChangePasswordType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/user")
@@ -31,13 +35,29 @@ class UserController extends AbstractController
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $photoFile */
+            $photoFile=$form->get('photo')->getData();
+
+            if ($photoFile){
+                $originalFilename=pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename=$slugger->slug($originalFilename);
+                $newFilename=$safeFilename.'-'.uniqid().'.'.$photoFile->guessExtension();
+
+                try{
+                    $photoFile->move($this->getParameter('photo_directory'),
+                    $newFilename
+                    );
+                } catch (FileException $e){}
+                $user->SetPhotoFilename($newFilename);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -72,6 +92,8 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            
             $this->getDoctrine()->getManager()->flush();$this->addFlash('success','modifié');
 
             return $this->redirectToRoute('default');
@@ -120,4 +142,5 @@ class UserController extends AbstractController
             'password_form'=>$form->createView(),
         ]);
     }
+
 }

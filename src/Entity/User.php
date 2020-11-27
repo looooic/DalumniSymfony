@@ -177,28 +177,12 @@ class User implements UserInterface
         return $this->photo;
     }
 
-    public function setPhoto(UploadedFile $photo = null): self
+    public function setPhoto($photo): self
     {
         $this->photo = $photo;
+        return $this;
     }
 
-    public function upload()
-    {
-        if(null===$this->getPhoto()){
-            return;
-        }
-        $this->getPhoto()->move(self::SERVER_PATH_TO_IMAGE_FOLDER,$this->getPhoto()->getClientOriginalName());
-        $this->filename=$this->getPhoto()->getClientOriginalName();
-        $this->setPhoto(null);
-    }
-    public function lifecycleFileUpload()
-    {
-        $this->upload();
-    }
-    public function refreshUpdated()
-    {
-        $this->setUpdated(new \DateTime());
-    }
 
     /**
      * @return Collection|ResetPasswordRequest[]

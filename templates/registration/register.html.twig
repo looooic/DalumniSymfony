@@ -20,6 +20,9 @@
     {{ form_label(registrationForm.email) }} :<br>
     {{ form_widget(registrationForm.email, {'attr': {class: 'form-control'} }) }}
 
+{#    {{ form_label(registrationForm.photo) }} :<br>#}
+{#    {{ form_widget(registrationForm.photo, {'attr': {class: 'form-control'} }) }} <p>(ca marche pas)</p>#}
+
     {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe :', 'attr': {class: 'form-control'} }) }}
 
     {{ form_row(registrationForm.agreeTerms, {label: 'Accepter les termes et conditions :', 'attr': {class: 'form-check'} }) }}
