@@ -7,6 +7,8 @@
  @import 'footer.css';
  @import 'accueil.css';
 @import 'forum.css';
+@import 'baseTwig.css';
+
  html, body,.container, .container-fluid {
     height: 100%;
 }

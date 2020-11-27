@@ -19,33 +19,33 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-flex-end" id="navbarNav">
-            <ul class="navbar-nav navbar-light bg-dark">
+        <div class="collapse navbar-collapse justify-content-flex-end" id="navbarNav" >
+            <ul class="navbar-nav navbar-light bg-dark" >
 
-                                {% if is_granted('ROLE_ADMIN') %}<ul class="navbar-nav basGauche"><li class="nav-item"></li><a class="nav-link" href="{{ path('adminlisteu') }}">Admin</a></ul> {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}<ul class="navbar-nav basGauche"><li class="nav-item"></li><a class="nav-link"  id="change" href="{{ path('adminlisteu') }}">Admin</a></ul> {% endif %}
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}<ul class="navbar-nav basDroite">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('default') }}">Acceuil<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" id="change" href="{{ path('default') }}">Acceuil<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('cours') }}">Cours</a>
+                    <a class="nav-link" id="change" href="{{ path('cours') }}">Cours</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('post_index') }}">Forum</a>
+                    <a class="nav-link"  id="change" href="{{ path('post_index') }}">Forum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('annuaire') }}">Annuaire</a>
+                    <a class="nav-link" id="change" href="{{ path('annuaire') }}">Annuaire</a>
                 </li>
-                    <a class="nav-link" href="{{ path('user_edit',{'id': app.user.id}) }}">Mon compte</a>
-                                    <li class="nav-item"><a class="nav-link" href="{{path('app_logout')}}">Se deconnecter</a></li>
+                    <a class="nav-link" id="change" href="{{ path('user_edit',{'id': app.user.id}) }}">{{ app.user.prenom }} {{ app.user.nom }}</a>
+                                    <li class="nav-item" ><a class="nav-link" id="change" href="{{path('app_logout')}}">Se deconnecter</a></li>
                     {% else %}
 
-                                    <li class="nav-item "><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>
-                                    <li class="nav-item "><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>
+                                    <li class="nav-item "><a class="nav-link" id="change" href="{{path('register')}}">Créer un compte</a></li>
+                                    <li class="nav-item "><a class="nav-link" id="change" href="{{path('app_login')}}">Se connecter</a></li>
                                 {% endif %}
 
 
-            </ul>
+                </ul></ul>
         </div>
     </nav>
     <br><br>
