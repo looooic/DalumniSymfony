@@ -27,6 +27,17 @@ class Commentaire
      */
     private $datecom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Post::class)
+     */
+    private $post;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Author::class)
+     */
+    private $author;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -55,4 +66,31 @@ class Commentaire
 
         return $this;
     }
+
+
+    public function getPost(): ?Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?Post $post): self
+    {
+        $this->post = $post;
+        return $this;
+    }
+
+
+    public function getAuthor(): ?Author
+    {
+        return $this->author;
+    }
+
+
+    public function setAuthor(?Author $author): self
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+
 }
