@@ -99,7 +99,7 @@ class PostController extends AbstractController
 
 
     /**
-     * @Route("/commentaire/add/{id}", name="article_add_commentaire", methods={"GET", "POST"})
+     * @Route("/commentaire/add/{id}", name="post_add_commentaire", methods={"GET", "POST"})
      */
 
     public function addCommentaire(Post $post,

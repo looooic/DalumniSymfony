@@ -31,17 +31,6 @@
     </table>
 
 
-    <ul class="commentaire">
-        {% for commentaire in commentaires %}
-            <li>
-                {{ commentaire.message }} <br>
-
-                (par {{ commentaire.author.user.prenom }} le  {{ commentaire.datecom ? comment.datecom|date('d-m-Y H:i:s') }})
-            </li>
-
-        {% endfor %}
-
-    </ul>
 
     <p>
         <a href="{{ path('post_add_commentaire', {'id': post.id}) }}">Ajouter un commentaire</a>
