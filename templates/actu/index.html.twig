@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste actualités{% endblock %}
+
+{% block body %}
+    <h1>Liste des actualités</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titreactu</th>
+                <th>Photoactu</th>
+                <th>Messageactu</th>
+                <th>Dateactu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actu in actus %}
+            <tr>
+                <td>{{ actu.id }}</td>
+                <td>{{ actu.titreactu }}</td>
+                <td><img src="/uploadimg/images/{{ actu.photoactu }}" style="width: 100%; height: 5em;"></td>
+                <td>{{ actu.messageactu }}</td>
+                <td>{{ actu.dateactu ? actu.dateactu|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('actu_show', {'id': actu.id}) }}">show</a>
+                    <a href="{{ path('actu_edit', {'id': actu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('actu_new') }}">Ajouter un nouvel article</a>
+{% endblock %}
