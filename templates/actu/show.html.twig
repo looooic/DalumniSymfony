@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actu{% endblock %}
+
+{% block body %}
+    <h1>Actu</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ actu.id }}</td>
+            </tr>
+            <tr>
+                <th>Titreactu</th>
+                <td>{{ actu.titreactu }}</td>
+            </tr>
+            <tr>
+                <th>Photoactu</th>
+                <td><img src="/uploadimg/images/{{ actu.photoactu }}" style="width: 50%; height: 50%;"></td>
+            </tr>
+            <tr>
+                <th>Messageactu</th>
+                <td>{{ actu.messageactu }}</td>
+            </tr>
+            <tr>
+                <th>Dateactu</th>
+                <td>{{ actu.dateactu ? actu.dateactu|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('actu_index') }}">back to list</a>
+
+    <a href="{{ path('actu_edit', {'id': actu.id}) }}">edit</a>
+
+    {{ include('actu/_delete_form.html.twig') }}
+{% endblock %}
+
+{# {% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col text-center d-flex justify-content-center" style="margin-bottom: 3rem;">
+        <article>
+            <h2>{{ actu.titreactu }}</h2>
+            <div class="metadata">{{ actu.dateactu ? actu.dateactu|date('Y-m-d H:i:s') : '' }}</div>
+            <div class="content">
+                {{ actu.photoactu }}
+                <img src="{{ asset("img/test.jpg") }}" alt="" class="w-75 p-3 h-25 d-inline-block">
+                <p>
+                    {{ actu.messageactu }}
+                </p>
+            </div>
+            <a href="{{ path('actu_index') }}">Retourner à la liste</a>
+
+            <a href="{{ path('actu_edit', {'id': actu.id}) }}">Editer l'article</a>
+
+            {{ include('actu/_delete_form.html.twig') }}
+        </article>
+    </div>
+{% endblock %} #}

@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\ActuRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ActuRepository::class)
+ * @Vich\Uploadable
  */
 class Actu
 {
@@ -27,6 +30,13 @@ class Actu
      */
     private $photoactu;
 
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="new_actu", fileNameProperty="photoactu")
+     */
+    private $imageFile;
+
     /**
      * @ORM\Column(type="text")
      */
@@ -36,6 +46,12 @@ class Actu
      * @ORM\Column(type="datetime")
      */
     private $dateactu;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Home::class, inversedBy="actus")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $home;
 
     public function getId(): ?int
     {
@@ -89,4 +105,36 @@ class Actu
 
         return $this;
     }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     * @return Actu
+     */
+    public function setImageFile(?File $imageFile): Actu
+    {
+        $this->imageFile = $imageFile;
+        return $this;
+    }
+
+    public function getHome(): ?Home
+    {
+        return $this->home;
+    }
+
+    public function setHome(?Home $home): self
+    {
+        $this->home = $home;
+
+        return $this;
+    }
+
+
 }
