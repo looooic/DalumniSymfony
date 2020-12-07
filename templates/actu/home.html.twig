@@ -1,52 +1,5 @@
 {% block body %}
-   {# <h1>Liste des actualités</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Titreactu</th>
-            <th>Photoactu</th>
-            <th>Messageactu</th>
-            <th>Dateactu</th>
-            <th>actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for actu in actus %}
-            <tr>
-                <td>{{ actu.id }}</td>
-                <td>{{ actu.titreactu }}</td>
-                <td><img src="/uploadimg/images/{{ actu.photoactu }}" style="width: 100%; height: 5em;"></td>
-                <td>{{ actu.messageactu }}</td>
-                <td>{{ actu.dateactu ? actu.dateactu|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('actu_show', {'id': actu.id}) }}">show</a>
-                    <a href="{{ path('actu_edit', {'id': actu.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table> #}
-{# <div class="row d-flex justify-content-center" style="margin: 1rem">
-    {% for actu in actus %}
-        <div class="col-md-6 col-lg-4 d-flex justify-content-center" style="margin: 1rem">
-            <div class="card" style="width: 18rem;">
-                <img src="/uploadimg/images/{{ actu.photoactu }}" class="card-img-top" alt="...">
-                <div class="card-body" style="text-align: center">
-                    <h5 class="card-title">{{ actu.titreactu }}</h5>
-                    <p class="card-text">{{ actu.messageactu }}</p>
-                    <a href="{{ path('actu_show', {'id': actu.id}) }}" class="btn btn-primary text-white">Voir l'article</a>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-</div> #}
-
+    
     {% for actu in actus %}
         <div class="row" style="margin-bottom: 5px; background-color: floralwhite; text-align: center">
             <div class="text-content mb-4 col-lg-6 d-flex justify-content-center
