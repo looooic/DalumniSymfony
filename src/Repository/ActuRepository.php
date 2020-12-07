@@ -18,6 +18,4 @@ class ActuRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Actu::class);
     }
-
-
 }

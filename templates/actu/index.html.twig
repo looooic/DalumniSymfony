@@ -4,7 +4,8 @@
 
 {% block body %}
     <h1>Liste des actualités</h1>
-
+    <a href="{{ path('actu_new') }}">Ajouter un nouvel article</a>
+    <br><br>
     <table class="table">
         <thead>
             <tr>
@@ -36,6 +37,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('actu_new') }}">Ajouter un nouvel article</a>
 {% endblock %}
