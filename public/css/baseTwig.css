@@ -1,0 +1,8 @@
+a#change{
+    transition-duration: 450ms;
+}
+
+a#change:hover {
+    color: lightgrey;
+
+}

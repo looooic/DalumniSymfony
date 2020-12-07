@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e676d8f44bab8cffa9bf6d0768a9a04",
+    "content-hash": "aaf20fe7a8cb33792bb420aebea111d9",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1470,8 +1470,8 @@
             "time": "2020-11-14T15:56:27+00:00"
         },
         {
-            "name": "jms/metadata",
-            "version": "2.4.0",
+            "name": "laminas/laminas-code",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/metadata.git",
@@ -7176,8 +7176,8 @@
             "time": "2020-10-27T19:28:23+00:00"
         },
         {
-            "name": "vich/uploader-bundle",
-            "version": "1.15.0",
+            "name": "webimpress/safe-writer",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dustin10/VichUploaderBundle.git",

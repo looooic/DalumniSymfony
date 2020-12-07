@@ -81,8 +81,9 @@
         {# TEST #}
 
     {% else %}
-        <a href="{{ path('register') }}">S'inscrire ici</a>
-        <a href="{{ path('app_login') }}">Se connecter ici</a>
+        <h2>Connectez-vous pour accéder au site :</h2><br><br>
+        <a href="{{ path('register') }}" class="btn  btn-lg active" >S'inscrire ici</a> <br>
+        <a href="{{ path('app_login') }}" class="btn  btn-lg active">Se connecter ici</a>
     {% endif %}
 
 {% endblock %}
