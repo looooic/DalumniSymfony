@@ -30,11 +30,13 @@ class Commentaire
 
     /**
      * @ORM\ManyToOne(targetEntity=Post::class)
+     *
      */
     private $post;
 
     /**
      * @ORM\ManyToOne(targetEntity=Author::class)
+     *
      */
     private $author;
 

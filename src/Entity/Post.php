@@ -35,6 +35,7 @@ class Post
 
     /**
      * @ORM\ManyToOne(targetEntity=Author::class)
+     *
      */
     private $author;
 

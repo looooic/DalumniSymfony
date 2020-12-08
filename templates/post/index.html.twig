@@ -86,11 +86,11 @@
                 <td>{{ post.datepost ? post.datepost|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <button type="button" class="btn btn-warning bouton">  <a href="{{ path('post_show', {'id': post.id}) }}">Aller sur le sujet</a> </button>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    {% if is_granted('EDIT', post) %}
+                    {% if is_granted('ROLE_ADMIN') %}
+
                     <button type="button" class="btn btn-light bouton">  <a href="{{ path('post_edit', {'id': post.id}) }}">Modifier le sujet</a> </button>
                     {% endif %}
-                    {% endif %}
+
                 </td>
             </tr>
         {% else %}
