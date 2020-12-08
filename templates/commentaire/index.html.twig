@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Commentaire index{% endblock %}
+{% block title %}Les commentaires{% endblock %}
 
 {% block body %}
-    <h1>Commentaire index</h1>
-
+    <h1>Les commentaires</h1>
+<br>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Message</th>
-                <th>Datecom</th>
-                <th>actions</th>
+                <th>Messages</th>
+                <th>Date </th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +21,8 @@
                 <td>{{ commentaire.message }}</td>
                 <td>{{ commentaire.datecom ? commentaire.datecom|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('commentaire_show', {'id': commentaire.id}) }}">show</a>
-                    <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">edit</a>
+                    <button type="button" class="btn btn-warning bouton">  <a href="{{ path('commentaire_show', {'id': commentaire.id}) }}">Aller sur le commentaire</a> </button>
+                    <button type="button" class="btn btn-light bouton">    <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">Modifier le sujet</a> </button>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('commentaire_new') }}">Create new</a>
+
 {% endblock %}

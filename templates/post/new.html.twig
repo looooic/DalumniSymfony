@@ -3,9 +3,9 @@
 {% block title %}New Post{% endblock %}
 
 {% block body %}
-    <h1>Create un nouveau post</h1>
-
+    <h1>Creer un nouveau post</h1>
+<br>
     {{ include('post/_form.html.twig') }}
-
+<br>
     <button type="button" class="btn btn-warning bouton">  <a href="{{ path('post_index') }}">Retour à la liste</a> </button>
 {% endblock %}

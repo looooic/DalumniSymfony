@@ -27,6 +27,7 @@ class Commentaire
      */
     private $datecom;
 
+
     /**
      * @ORM\ManyToOne(targetEntity=Post::class)
      */
@@ -36,6 +37,11 @@ class Commentaire
      * @ORM\ManyToOne(targetEntity=Author::class)
      */
     private $author;
+
+    public function __construct()
+    {
+        $this->datecom = new \DateTime();
+    }
 
 
     public function getId(): ?int

@@ -14,7 +14,6 @@ class PostType extends AbstractType
         $builder
             ->add('titre')
             ->add('champs')
-            ->add('datepost')
         ;
     }
 

@@ -7,6 +7,7 @@ use App\Entity\Commentaire;
 use App\Entity\Post;
 use App\Form\CommentaireType;
 use App\Form\PostType;
+use App\Repository\CommentaireRepository;
 use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -56,10 +57,12 @@ class PostController extends AbstractController
     /**
      * @Route("/{id}", name="post_show", methods={"GET"})
      */
-    public function show(Post $post): Response
+    public function show(Post $post, CommentaireRepository $commentaireRepository): Response
     {
         return $this->render('post/show.html.twig', [
             'post' => $post,
+            'commentaires' => $commentaireRepository->findBy(['post' => $post])
+
         ]);
     }
 
@@ -96,5 +99,8 @@ class PostController extends AbstractController
 
         return $this->redirectToRoute('post_index');
     }
+
+
+
 
 }
