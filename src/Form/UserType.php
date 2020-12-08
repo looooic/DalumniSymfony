@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UserType extends AbstractType
 {
@@ -18,7 +19,7 @@ class UserType extends AbstractType
             ->add('email')
             ->add('nom')
             ->add('prenom')
-            ->add('photo')
+            ->add('imageFile', VichImageType::class)
             ->add('author', AuthorType::class,[
                 'label'=>false
             ])

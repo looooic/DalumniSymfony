@@ -7,8 +7,9 @@
 
     <table class="table table-active table-hover">
       <thead class="thead-dark"><tr>
-        <th>Nom</th>
-        <th>Prenom</th>
+        <th>Photo</th>
+          <th>Nom</th>
+          <th>Prenom</th>
         <th>Email</th>
             <th>Role</th>
         <th>Modifier role</th>
@@ -16,7 +17,8 @@
 
         {% for users in users %}
         <tr ></thead>
-            <td >{{ users.nom }}</td>
+        <td> <img src="{{ vich_uploader_asset(users, 'imageFile') }}" width="75px"></td>
+        <td >{{ users.nom }}</td>
             <td>{{ users.prenom }}</td>
             <td>{{ users.email }}</td>
 

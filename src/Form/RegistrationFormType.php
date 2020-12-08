@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -26,7 +27,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez cocher cette case.',
                     ]),
                 ],
             ])
@@ -46,19 +47,8 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('photo', FileType::class,[
-                'label'=>'Photo de profile',
-                'mapped'=>false,
-                'required'=>false,
-                'constraints'=>[new File([
-                    'maxSize'=>'1024k',
-                    'mimeTypes'=>[
-                        'application/jpg',
-                        'application.png',
-                        'application.jpeg'
-                    ],
-                    'mimeTypesMessage'=>'Inserer une photo au format PNG/JPG'])]
-            ])
+            ->add('imageFile', VichImageType::class)
+
         ;
     }
 

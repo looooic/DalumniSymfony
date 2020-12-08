@@ -26,20 +26,20 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            /** @var UploadedFile $photoFile */
-            $photoFile=$form->get('photo')->getData();
-
-            if ($photoFile){
-                $originalFilename=pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename=$slugger->slug($originalFilename);
-                $newFilename=$safeFilename.'-'.uniqid().'.'.$photoFile->guessExtension();
-
-                try{
-                    $photoFile->move($this->getParameter('photo_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e){}
-                $user->SetPhotoFilename($newFilename);}
+//            /** @var UploadedFile $photoFile */
+//            $photoFile=$form->get('photo')->getData();
+//
+//            if ($photoFile){
+//                $originalFilename=pathinfo($photoFile->getClientOriginalName(), PATHINFO_FILENAME);
+//                $safeFilename=$slugger->slug($originalFilename);
+//                $newFilename=$safeFilename.'-'.uniqid().'.'.$photoFile->guessExtension();
+//
+//                try{
+//                    $photoFile->move($this->getParameter('photo_directory'),
+//                        $newFilename
+//                    );
+//                } catch (FileException $e){}
+//                $user->SetPhotoFilename($newFilename);}
 
             $user->setPassword(
                 $passwordEncoder->encodePassword(

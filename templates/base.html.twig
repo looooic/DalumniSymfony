@@ -36,10 +36,11 @@
                 <li class="nav-item">
                     <a class="nav-link" id="change" href="{{ path('annuaire') }}">Annuaire</a>
                 </li>
-                    <a class="nav-link" id="change" href="{{ path('user_edit',{'id': app.user.id}) }}">{{ app.user.prenom }} {{ app.user.nom }}</a>
-                                    <li class="nav-item" ><a class="nav-link" id="change" href="{{path('app_logout')}}">Se deconnecter</a></li>
-                    {% else %}
+                   <li> <a class="nav-link" id="change" href="{{ path('user_edit',{'id': app.user.id}) }}">{{ app.user.prenom }} {{ app.user.nom }} </a></li>
+                    <li><a class="nav-link" id="change" href="{{ path('user_edit',{'id': app.user.id}) }}"> <img src="{{ vich_uploader_asset(app.user, 'imageFile') }}" width="75px"> </a></li>
 
+                    <li class="nav-item" ><a class="nav-link" id="change" href="{{path('app_logout')}}">Se deconnecter</a></li>
+                    {% else %}
                                     <li class="nav-item "><a class="nav-link" id="change" href="{{path('register')}}">Créer un compte</a></li>
                                     <li class="nav-item "><a class="nav-link" id="change" href="{{path('app_login')}}">Se connecter</a></li>
                                 {% endif %}
@@ -74,7 +75,6 @@
             {# BODY CONTENT #}
         {% endblock %}
     </div>
-
     <footer>
         {% block footer %}
             <div class="fixed-bottom">
