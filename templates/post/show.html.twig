@@ -36,7 +36,7 @@
 
             <td>{{ commentaire.id }}</td>
             <td>{{ commentaire.message }}</td>
-            <td> (par le {{ commentaire.author.user.prenom }} {{ commentaire.datecom ? commentaire.datecom|date('Y-m-d H:i:s') : '' }}</td>
+            <td> (par {{ commentaire.author.user.prenom }} le {{ commentaire.datecom ? commentaire.datecom|date('Y-m-d H:i:s') : '' }})</td>
             <td>
                 {% if is_granted('ROLE_ADMIN') or is_granted('DELETE', post) %}
                 <button type="button" class="btn btn-warning bouton"> <a href="{{ path('commentaire_show', {'id': commentaire.id}) }}">Aller sur le commentaire</a> </button>
