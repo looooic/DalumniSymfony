@@ -32,12 +32,11 @@ class Post
      */
     private $datepost;
 
-
     /**
-     * @ORM\ManyToOne(targetEntity=Author::class)
-     *
+     * @ORM\ManyToOne(targetEntity=Author::class, inversedBy="posts")
      */
     private $author;
+
 
     public function __construct()
     {
