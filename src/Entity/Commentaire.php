@@ -27,15 +27,23 @@ class Commentaire
      */
     private $datecom;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity=Post::class)
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="author",)
+     *
      */
     private $post;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Author::class)
+     * @ORM\ManyToOne(targetEntity=Author::class, inversedBy="user",)
+     *
      */
     private $author;
+
+    public function __construct()
+    {
+        $this->datecom = new \DateTime();
+    }
 
 
     public function getId(): ?int

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Entity\Post;
 use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,6 +46,7 @@ class CommentaireController extends AbstractController
         return $this->render('commentaire/new.html.twig', [
             'commentaire' => $commentaire,
             'form' => $form->createView(),
+
         ]);
     }
 
@@ -91,4 +93,7 @@ class CommentaireController extends AbstractController
 
         return $this->redirectToRoute('commentaire_index');
     }
+
+
+
 }
