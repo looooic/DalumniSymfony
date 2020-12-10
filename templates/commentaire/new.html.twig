@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Commentaire{% endblock %}
+{% block title %}Nouveau commentaire{% endblock %}
 
 {% block body %}
-    <h1>Create new Commentaire</h1>
-
+    <h1>Creer votre commentaire</h1>
+<br>
     {{ include('commentaire/_form.html.twig') }}
-
-    <a href="{{ path('commentaire_index') }}">back to list</a>
+<br>
+{% if is_granted('ROLE_ADMIN') %}
+    <button type="button" class="btn btn-warning bouton">   <a href="{{  path('commentaire_index') }}">Retour à la liste des commentaires</a> </button>
+{% endif %}
+    <button type="button" class="btn btn-warning bouton">   <a href="{{  path('commentaire_index') }}">Retour au sujet </a> </button
 {% endblock %}

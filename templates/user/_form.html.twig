@@ -1,4 +1,21 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+    {{ form_label(form.nom) }} :<br>
+    {{ form_widget(form.nom, {'attr': {class: 'form-control'} }) }}
+    {{ form_label(form.prenom) }} :<br>
+    {{ form_widget(form.prenom, {'attr': {class: 'form-control'} }) }}
+    {{ form_label(form.email) }} :<br>
+    {{ form_widget(form.email, {'attr': {class: 'form-control'} }) }}
+    {{ form_label(form.imageFile) }} :<br>
+    {{ form_widget(form.imageFile, {'attr': {class: 'form-control'} }) }}
+
+
+
+
+    <button class="btn">{{ button_label|default('Modifier') }}</button>
+
+
+
+
 {{ form_end(form) }}
+

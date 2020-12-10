@@ -13,9 +13,8 @@ class CommentaireType extends AbstractType
     {
         $builder
             ->add('message')
-            ->add('datecom')
-            ->add('post')
-            ->add('author')
+
+
         ;
     }
 
@@ -23,7 +22,7 @@ class CommentaireType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Commentaire::class,
-            'label_format' => 'comment.%name%.label',
+
         ]);
     }
 }

@@ -4,10 +4,19 @@
 @import 'pop-sign.css';
 @import 'blur.css';
 @import 'nav-connexion.css';
- @import 'footer.css';
- @import 'accueil.css';
+@import 'footer.css';
+@import 'accueil.css';
 @import 'forum.css';
+@import 'baseTwig.css';
+
  html, body,.container, .container-fluid {
     height: 100%;
+}
+body{
+    transition: 2s;
+}
+.dark_mode{
+    background-color: #25282A ;
+    color: white;
 }
 

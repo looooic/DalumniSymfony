@@ -8,12 +8,16 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @Vich\Uploadable()
  */
-class User implements UserInterface
+class User implements UserInterface , \Serializable
 {
     /**
      * @ORM\Id
@@ -48,10 +52,18 @@ class User implements UserInterface
      */
     private $prenom;
 
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string | null
      */
     private $photo;
+
+    /**
+     * @Vich\UploadableField(mapping="user_pp", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\OneToMany(targetEntity=ResetPasswordRequest::class, mappedBy="user_id")
@@ -62,6 +74,13 @@ class User implements UserInterface
      * @ORM\OneToOne(targetEntity=Author::class, mappedBy="user", cascade={"persist", "remove"})
      */
     private $author;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updateAt;
+
 
     public function __construct()
     {
@@ -168,17 +187,20 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
+
+
+
     public function getPhoto(): ?string
     {
         return $this->photo;
     }
 
-    public function setPhoto(?string $photo): self
+    public function setPhoto($photo): self
     {
         $this->photo = $photo;
-
         return $this;
     }
+
 
     /**
      * @return Collection|ResetPasswordRequest[]
@@ -230,5 +252,66 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @param File|null $photo
+     * @return User
+     */
+    public function setImageFile(File $photo=null)
+    {
+        $this->imageFile=$photo;
+
+        if($photo)
+        {
+            $this->updateAt = new \DateTime('now');
+        }
+
+    }
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+    public function setImage($photo)
+    {
+        $this->photo=$photo;
+    }
+    public function getImage()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * String representation of object
+     * @link https://php.net/manual/en/serializable.serialize.php
+     * @return string the string representation of the object or null
+     * @since 5.1.0
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->photo,
+        ));
+    }
+
+    /**
+     * Constructs the object
+     * @link https://php.net/manual/en/serializable.unserialize.php
+     * @param string $serialized <p>
+     * The string representation of the object.
+     * </p>
+     * @return void
+     * @since 5.1.0
+     */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->photo,
+            ) = unserialize($serialized, array('allowed_classes' => false));
+    }
 
 }
