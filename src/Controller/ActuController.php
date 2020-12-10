@@ -93,4 +93,11 @@ class ActuController extends AbstractController
 
         return $this->redirectToRoute('actu_index');
     }
+
+   public function findAll(ActuRepository $actuRepository)
+    {
+        return $this->render('actu/home.html.twig', [
+            'actus' => $actuRepository->findAll(),
+        ]);
+    }
 }
