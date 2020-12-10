@@ -40,12 +40,12 @@ class Author
     private $birthday;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="author", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="author")
      */
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="author", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="author")
      */
     private $posts;
 

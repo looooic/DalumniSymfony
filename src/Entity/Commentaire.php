@@ -29,13 +29,13 @@ class Commentaire
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="author", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="author",)
      *
      */
     private $post;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Author::class, inversedBy="user", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Author::class, inversedBy="user",)
      *
      */
     private $author;
