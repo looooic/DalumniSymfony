@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>Auteur</th>
-                <td>{{ commentaire.author.user.prenom }}</td>
+                <td>{{ commentaire.author ? commentaire.author.user.prenom }}</td>
             </tr>
             <tr>
                 <th>Créer le</th>
