@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse justify-content-flex-end" id="navbarNav" >
             <ul class="navbar-nav navbar-light bg-dark" >
 
-                                {% if is_granted('ROLE_ADMIN') %}<ul class="navbar-nav basGauche"><li class="nav-item"></li><a class="nav-link"  id="change" href="{{ path('adminlisteu') }}">Admin</a></ul> {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}<ul class="navbar-nav basGauche"><li class="nav-item"></li><a class="nav-link"  id="change" href="{{ path('admindefault') }}">Admin</a></ul> {% endif %}
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}<ul class="navbar-nav basDroite">
 
 
@@ -75,7 +75,6 @@
 {#            </div>#}
 {#        </nav>#}
 {#    </header>#}
-
 
     <div class="container">
         {% block body %}
