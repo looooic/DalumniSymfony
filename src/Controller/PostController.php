@@ -56,6 +56,43 @@ class PostController extends AbstractController
     }
 
     /**
+     * @Route("/commentaire/add/{id}", name="post_add_commentaire", methods={"GET", "POST"})
+     */
+
+    public function addCommentaire(Post $post,
+                               Request $request,
+                               EntityManagerInterface $entityManager,
+                               TranslatorInterface $translator
+
+    )
+    {
+        $commentaire = new Commentaire();
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $commentaire->setPost($post)
+                ->setAuthor($this->getUser()->getAuthor());
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+
+            $this->addFlash('success', $translator->trans('commentaire.success'));
+
+            return $this->redirectToRoute('post_show', [
+                'id' => $post->getId(),
+            ]);
+        }
+
+
+        return $this->render('post/add_commentaire.html.twig', [
+            'post' => $post,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="post_show", methods={"GET"})
      */
     public function show(Post $post, CommentaireRepository $commentaireRepository): Response
