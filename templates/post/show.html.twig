@@ -62,7 +62,7 @@
     <a href="{{ path('commentaire_new', {'id': post.id}) }}">Ajouter un commentaire</a>
 </button>
       {% endif %}
-    <button type="button" class="btn btn-warning bouton"> <a href="{{ path('post_index') }}">Retour à la liste</a> </button>
+    <button type="button" class="btn btn-warning bouton"> <a href="{{ path('post_index') }}">Retour à la liste des sujets</a> </button>
       {% if is_granted('EDIT', post) %}
     <button type="button" class="btn btn-secondary bouton"> <a href="{{ path('post_edit', {'id': post.id}) }}">Editer</a> </button>
       {% endif %}

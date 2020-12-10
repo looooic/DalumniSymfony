@@ -16,7 +16,11 @@
                 <td>{{ commentaire.message }}</td>
             </tr>
             <tr>
-                <th>Datecom</th>
+                <th>Auteur</th>
+                <td>{{ commentaire.author.user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Créer le</th>
                 <td>{{ commentaire.datecom ? commentaire.datecom|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
