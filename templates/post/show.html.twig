@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Post{% endblock %}
+{% block title %}Le sujet{% endblock %}
 
 {% block body %}
-    <h1>Post</h1>
-
+    <h1>Sujet</h1>
+<br>
     <table class="table">
         <tbody>
             <tr>
@@ -30,16 +30,43 @@
         </tbody>
     </table>
 
+    {% for commentaire in commentaires %}
+        <tr>
+            <div class="alert alert-dark" role="alert">
 
+            <td>{{ commentaire.id }}</td>
+            <td>{{ commentaire.message }}</td>
+            <td> (par {{ commentaire.author.user.prenom }} le {{ commentaire.datecom ? commentaire.datecom|date('Y-m-d H:i:s') : '' }})</td>
+            <td>
+                {% if is_granted('ROLE_ADMIN') or is_granted('DELETE', post) %}
+                <button type="button" class="btn btn-warning bouton"> <a href="{{ path('commentaire_show', {'id': commentaire.id}) }}">Aller sur le commentaire</a> </button>
+                <button type="button" class="btn btn-light bouton"> <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">Modifier</a> </button>
+                {% endif %}
+            </td>
 
+            </div>
+        </tr>
+    {% else %}
+        <tr>
+            <div class="alert alert-warning" role="alert">
+            <td colspan="4">Pas de commentaire pour l'instant</td>
+            </div>
+        </tr>
+    {% endfor %}
+
+<br><br><br>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
 <button type="button" class="btn btn-primary bouton">
-    <a href="{{ path('post_add_commentaire', {'id': post.id}) }}">Ajouter un commentaire</a>
+    <a href="{{ path('commentaire_new', {'id': post.id}) }}">Ajouter un commentaire</a>
 </button>
-
-    <button type="button" class="btn btn-warning bouton"> <a href="{{ path('post_index') }}">Retour à la liste</a> </button>
-
-    <button type="button" class="btn btn-secondary bouton"> <a href="{{ path('post_edit', {'id': post.id}) }}">editer</a> </button>
-
+      {% endif %}
+    <button type="button" class="btn btn-warning bouton"> <a href="{{ path('post_index') }}">Retour à la liste des sujets</a> </button>
+      {% if is_granted('EDIT', post) %}
+    <button type="button" class="btn btn-secondary bouton"> <a href="{{ path('post_edit', {'id': post.id}) }}">Editer</a> </button>
+      {% endif %}
+    {% if is_granted('ROLE_ADMIN') or is_granted('DELETE', post) %}
     <button type="button" class="btn btn-danger bouton"> {{ include('post/_delete_form.html.twig') }}</button>
+     {% endif %}
 {% endblock %}
