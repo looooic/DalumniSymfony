@@ -26,9 +26,9 @@
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}<ul class="navbar-nav basDroite">
 
 
-                    <input type="text" id="number" value="0" style="visibility: hidden"/>
+{#                    <input type="text" id="number" value="0" style="visibility: hidden"/>#}
 
-                    <li class="nav-item"><button onclick="incrementValue()" value="Increment Value"  id="BTN1" class="btn btn-outline-light">Mode sombre</button></li>
+                    <li class="nav-item"><button onclick="modeS()" value="Increment Value"  id="BTN1" class="btn btn-outline-light">Mode sombre</button></li>
 
 
 
@@ -97,17 +97,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-           <script> function incrementValue() {
-                   var value = parseInt(document.getElementById('number').value, 0);
-                   value = isNaN(value) ? 0 : value;
-                   value++;
-                   document.getElementById('number').value = value;
-
-            if (value%2==1){
-            window.onload=modeS()
-            } else{
-            }
-           }
+           <script>
+           //     function incrementValue() {
+           //         var value = parseInt(document.getElementById('number').value, 0);
+           //         value = isNaN(value) ? 0 : value;
+           //         value++;
+           //         document.getElementById('number').value = value;
+           //
+           //  if (value%2==1){
+           //  window.onload=modeS()
+           //  } else{
+           //  }
+           // }
 
            function modeS() {
                var element = document.getElementById("containerID");
