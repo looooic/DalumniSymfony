@@ -47,10 +47,10 @@
                    <li> <a class="nav-link" id="change" href="{{ path('user_edit',{'id': app.user.id}) }}">{{ app.user.prenom }} {{ app.user.nom }} </a></li>
                     <li><a class="nav-link" id="change" href="{{ path('user_edit',{'id': app.user.id}) }}"> <img src="{{ vich_uploader_asset(app.user, 'imageFile') }}" width="50px" style="border-radius: 15%"> </a></li>
 
-                    <li class="nav-item" ><a class="nav-link" id="change" href="{{path('app_logout')}}">Se deconnecter</a></li>
+                    <li class="nav-item" ><a class="nav-link " id="change" href="{{path('app_logout')}}">Se deconnecter</a></li>
                     {% else %}
-                                    <li class="nav-item basDroite"><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>
-                                    <li class="nav-item basDroite"><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>
+                                    <li class="nav-item "><a class="nav-link" href="{{path('register')}}">Créer un compte</a></li>
+                                    <li class="nav-item "><a class="nav-link" href="{{path('app_login')}}">Se connecter</a></li>
                                 {% endif %}
 
                 </li>
