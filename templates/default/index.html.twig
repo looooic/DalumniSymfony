@@ -5,15 +5,9 @@
 {% block body %}
 
     {% if is_granted('ROLE_USER') %}
-        connecté
-{% else %}
-    <a href="{{ path('register') }}">S'inscrire ici</a>
-    <a href="{{ path('app_login') }}">Se connecter ici</a>
-{% endif %}
+        {# CONNECTE #}
 
-    {% if is_granted('ROLE_USER') %}
-        {# connecté #}
-        <div class="col text-center d-flex justify-content-center">
+        {# <div class="col text-center d-flex justify-content-center">
             <h1>Bienvenue sur Dawan Alumni</h1>
         </div>
 
@@ -40,13 +34,29 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+        </div> #}
+
+        <div class="hero-image text-center">
+            <img src="{{ asset('img/header2.jpeg') }}" class="img-fluid">
+        </div>
+        <div style="margin: 3rem;">
+            <h2 class="display-4 text-center" style="font-size: 3rem;">Nos dernières actualités</h2>
         </div>
 
+
+        {#  <div class="jumbotron" style="background-color: whitesmoke;">
+            <h1 class="display-4">Bienvenue sur Dawan Alumni !</h1>
+            <p class="lead">Cette espace est dédié aux étudiants du réseau Dawan, retrouvez ici les dernières actualités, un espace d'accès aux cours, et un forum d'échange entre alumnis !</p>
+            <hr class="my-4">
+        </div> #}
+
+        {{ render(controller('App\\Controller\\ActuController::findAll')) }}
+
     {% else %}
-        <a href="{{ path('register') }}">S'inscrire ici</a>
-        <a href="{{ path('app_login') }}">Se connecter ici</a>
+    <a href="{{ path('register') }}">S'inscrire ici</a>
+    <a href="{{ path('app_login') }}">Se connecter ici</a>
     {% endif %}
-
-{{ render(controller('App\\Controller\\ActuController::findAll')) }}
-
 {% endblock %}
+
+
+

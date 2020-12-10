@@ -1,0 +1,8 @@
+actu:
+    titreactu:
+        label: Titre
+    photoactu: Image
+    messageactu: {label: Contenu}
+    dateactu: Crée le
+    actions: Actions
+

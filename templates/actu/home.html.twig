@@ -1,22 +1,36 @@
 {% block body %}
-    
+    {% if is_granted('ROLE_USER') %}
     {% for actu in actus %}
-        <div class="row" style="margin-bottom: 5px; background-color: floralwhite; text-align: center">
+        <div class="row" style="margin-top: 10px; margin-bottom: 20px; text-align: center; border: solid 1px grey;">
             <div class="text-content mb-4 col-lg-6 d-flex justify-content-center
 flex-column justify-content-around">
                 <h2 class="mb-4">{{ actu.titreactu }}</h2>
-                <h5 class="">{{ actu.messageactu }}</h5>
+                <p class="">{{ actu.messageactu }}</p>
                 <div class="">
                     <a href="{{ path('actu_show', {'id': actu.id}) }}" class="btn btn-primary text-white">Voir l'article</a>
                 </div>
             </div>
             <div class="mbr-figure col-lg-6">
-                <img src="/uploadimg/images/{{ actu.photoactu }}" class="card-img-top w-100 p-3 h-100 d-inline-block" alt="...">
+                <img src="/uploadimg/images/{{ actu.photoactu }}" class="card-img-top w-80 p-3 h-80 d-inline-block" alt="...">
             </div>
         </div>
         <br>
+{#  <div class="row d-flex justify-content-center" style="margin: 1rem">
+            {% for actu in actus %}
+                <div class="col-md-6 col-lg-3 d-flex justify-content-center" style="margin: 1rem">
+                    <div class="card" style="width: 18rem">
+                        <img src="/uploadimg/images/{{ actu.photoactu }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ actu.titreactu }}</h5>
+                            <p class="card-text">{{ actu.messageactu }}</p>
+                            <a href="{{ path('actu_show', {'id': actu.id}) }}" class="btn btn-primary text-white">Voir l'article</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div> #}
     {% endfor %}
-
+    {% endif %}
 {% endblock %}
 
 
