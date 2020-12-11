@@ -99,7 +99,7 @@ class PostController extends AbstractController
     {
         return $this->render('post/show.html.twig', [
             'post' => $post,
-            'commentaires' => $commentaireRepository->findBy(['post' => $post])
+            'commentaires' => $commentaireRepository->findBy(['post' => $post]),
 
         ]);
     }

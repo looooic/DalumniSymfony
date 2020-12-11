@@ -1,8 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Hello Monsieur l'Admin !{% endblock %}
 
 {% block body %}
-    <a href="{{ path('adminlisteu') }}" >Liste users</a>
-    <a href="{{ path('actu_index') }}">Liste des actualités</a>
+    <br>
+    <h1>Tableau de bord</h1>
+    <br>
+    <button type="button" class="btn btn-info bouton">  <a href="{{ path('adminlisteu') }}" >Liste des users</a> </button>
+    <button type="button" class="btn btn-info bouton">  <a href="{{ path('actu_index') }}">Liste des actualités</a> </button>
+    <button type="button" class="btn btn-info bouton">  <a href="{{ path('post_index') }}">Liste des sujets</a> </button>
+    <button type="button" class="btn btn-info bouton"> <a href="{{ path('commentaire_index') }}">Liste des commentaires</a> </button>
 {% endblock %}

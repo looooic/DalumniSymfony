@@ -26,9 +26,11 @@
         </tbody>
     </table>
 
-    <button type="button" class="btn btn-warning bouton"> <a href="{{ path('commentaire_index') }}">Retour à la liste</a> </button>
 
-    <button type="button" class="btn btn-secondary bouton">  <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">Editer</a> </button>
-
+    <button type="button" class="btn btn-info bouton"> <a href="{{ path('commentaire_index', {'id': commentaire.id}) }}">Retour au sujet</a> </button>
+    {% if is_granted('ROLE_ADMIN') %}
+    <button type="button" class="btn btn-warning bouton"> <a href="{{ path('commentaire_index') }}">Retour à la liste des commentaires</a> </button>
+    <button type="button" class="btn btn-secondary bouton">  <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">Modifier</a> </button>
+     {% endif %}
 
 {% endblock %}
