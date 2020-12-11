@@ -6,6 +6,7 @@ use App\Entity\Commentaire;
 use App\Entity\Post;
 use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
+use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -57,6 +58,7 @@ class CommentaireController extends AbstractController
     {
         return $this->render('commentaire/show.html.twig', [
             'commentaire' => $commentaire,
+
         ]);
     }
 
